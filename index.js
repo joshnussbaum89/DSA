@@ -47,3 +47,18 @@ function longestWord(sen) {
 
   return longest
 }
+
+/**
+ * Determine if username passes validation
+ * @description String must: be between 4 + 25 chars, start with a letter, contain only letters and numbers, and last char is not an underscore
+ * @param {string} str
+ * @returns true or false
+ */
+function usernameValidation(str) {
+  const correctLength = str.length >= 4 && str.length <= 25
+  const startsWithLetter = str[0].toLowerCase() !== str[0].toUpperCase()
+  const containsCorrectChars =
+    /^[a-zA-Z0-9_]*$/.test(str) && str[str.length - 1] !== '_'
+
+  return correctLength && startsWithLetter && containsCorrectChars
+}
