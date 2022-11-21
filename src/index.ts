@@ -2,7 +2,7 @@
  * @param {number} num
  * @returns the factorial of the num parameter passed in
  */
-function firstFactorial(num) {
+function firstFactorial(num: number): number {
   let factorial = 1
   for (let i = 1; i <= num; i++) factorial *= i
   return factorial
@@ -12,7 +12,7 @@ function firstFactorial(num) {
  * @param {object} strArr - Array of two strings containing comma separated string number values ex/ ['1, 2, 3, 4', '5, 6, 7, 8']
  * @returns A string of the numbers that occur in both strings
  */
-function findIntersection(strArr) {
+function findIntersection(strArr: string[]): string | boolean {
   let arrayOne = strArr[0].split(', ')
   let arrayTwo = strArr[1].split(', ')
 
@@ -29,7 +29,7 @@ function findIntersection(strArr) {
  * @param {string} sen
  * @returns longest word in string provided
  */
-function longestWord(sen) {
+function longestWord(sen: string): string {
   // Sort and remove special chars
   const sorted = sen
     .split(' ')
@@ -54,11 +54,27 @@ function longestWord(sen) {
  * @param {string} str
  * @returns true or false
  */
-function usernameValidation(str) {
+function usernameValidation(str: string): boolean {
   const correctLength = str.length >= 4 && str.length <= 25
   const startsWithLetter = str[0].toLowerCase() !== str[0].toUpperCase()
   const containsCorrectChars =
     /^[a-zA-Z0-9_]*$/.test(str) && str[str.length - 1] !== '_'
 
   return correctLength && startsWithLetter && containsCorrectChars
+}
+
+/**
+ * Recusive function to repeat a string 'num' number of times
+ * @param text
+ * @param num
+ * @returns repeated string
+ */
+function repetition(text: string, num: number): string {
+  if (num <= 0) {
+    return ''
+  } else if (num === 1) {
+    return text
+  } else {
+    return `${text}${repetition(text, num - 1)}`
+  }
 }

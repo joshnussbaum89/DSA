@@ -1,0 +1,22 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "Data Structures & Algorithms",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "npx tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshnussbaum89/DSA.git"
+  },
+  "author": "Josh Nussbaum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshnussbaum89/DSA/issues"
+  },
+  "homepage": "https://github.com/joshnussbaum89/DSA#readme",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  }
+}
