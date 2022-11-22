@@ -78,3 +78,34 @@ function repetition(text: string, num: number): string {
     return `${text}${repetition(text, num - 1)}`
   }
 }
+
+/**
+ * Person class - compareAge method compares ages between Person classes
+ */
+class Person {
+  name: string
+  age: number
+
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+
+  compareAge(other: Person) {
+    const myAge = this.age
+    const theirAge = other.age
+
+    if (theirAge > myAge) {
+      return `${other.name} is older than me.`
+    } else if (theirAge < myAge) {
+      return `${other.name} is younger than me.`
+    } else {
+      return `${other.name} is the same age as me`
+    }
+  }
+}
+
+let p1 = new Person('Samuel', 24)
+let p2 = new Person('Joel', 36)
+let p3 = new Person('Lily', 24)
+console.log(p1.compareAge(p3))

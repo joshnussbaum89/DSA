@@ -70,3 +70,30 @@ function repetition(text, num) {
         return "".concat(text).concat(repetition(text, num - 1));
     }
 }
+/**
+ * Person class - compareAge method compares ages between Person classes
+ */
+var Person = /** @class */ (function () {
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.compareAge = function (other) {
+        var myAge = this.age;
+        var theirAge = other.age;
+        if (theirAge > myAge) {
+            return "".concat(other.name, " is older than me.");
+        }
+        else if (theirAge < myAge) {
+            return "".concat(other.name, " is younger than me.");
+        }
+        else {
+            return "".concat(other.name, " is the same age as me");
+        }
+    };
+    return Person;
+}());
+var p1 = new Person('Samuel', 24);
+var p2 = new Person('Joel', 36);
+var p3 = new Person('Lily', 24);
+console.log(p1.compareAge(p3));
