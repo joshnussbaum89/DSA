@@ -93,7 +93,10 @@ var Person = /** @class */ (function () {
     };
     return Person;
 }());
-var p1 = new Person('Samuel', 24);
-var p2 = new Person('Joel', 36);
-var p3 = new Person('Lily', 24);
-console.log(p1.compareAge(p3));
+/**
+ * @param arr Array of integers
+ * @returns the absolute value of an array of negative and positive integers
+ */
+function getAbsSum(arr) {
+    return arr.map(function (num) { return Math.abs(num); }).reduce(function (a, b) { return a + b; }, 0);
+}

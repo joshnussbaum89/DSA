@@ -105,7 +105,10 @@ class Person {
   }
 }
 
-let p1 = new Person('Samuel', 24)
-let p2 = new Person('Joel', 36)
-let p3 = new Person('Lily', 24)
-console.log(p1.compareAge(p3))
+/**
+ * @param arr Array of integers
+ * @returns the absolute value of an array of negative and positive integers
+ */
+function getAbsSum(arr: number[]): number {
+  return arr.map((num) => Math.abs(num)).reduce((a, b) => a + b, 0)
+}
