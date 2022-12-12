@@ -26,6 +26,7 @@ function findIntersection(strArr: string[]): string | boolean {
 
 /**
  * Determine the longest word from a parameter containing a string of words
+ *
  * @param {string} sen
  * @returns longest word in string provided
  */
@@ -50,6 +51,7 @@ function longestWord(sen: string): string {
 
 /**
  * Determine if username passes validation
+ *
  * @description String must: be between 4 + 25 chars, start with a letter, contain only letters and numbers, and last char is not an underscore
  * @param {string} str
  * @returns true or false
@@ -65,6 +67,7 @@ function usernameValidation(str: string): boolean {
 
 /**
  * Recusive function to repeat a string 'num' number of times
+ *
  * @param text
  * @param num
  * @returns repeated string
