@@ -103,3 +103,11 @@ var Person = /** @class */ (function () {
 function getAbsSum(arr) {
     return arr.map(function (num) { return Math.abs(num); }).reduce(function (a, b) { return a + b; }, 0);
 }
+/**
+ * Calculate compound interest over a specified term
+ */
+function compoundInterest(principal, term, rate, compoundingPeriods) {
+    var finalInvestmentValue = principal *
+        Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term);
+    return +finalInvestmentValue.toFixed(2);
+}

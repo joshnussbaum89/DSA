@@ -115,3 +115,19 @@ class Person {
 function getAbsSum(arr: number[]): number {
   return arr.map((num) => Math.abs(num)).reduce((a, b) => a + b, 0)
 }
+
+/**
+ * Calculate compound interest over a specified term
+ */
+function compoundInterest(
+  principal: number,
+  term: number,
+  rate: number,
+  compoundingPeriods: number
+): number {
+  const finalInvestmentValue =
+    principal *
+    Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term)
+
+  return +finalInvestmentValue.toFixed(2)
+}
