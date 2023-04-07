@@ -131,3 +131,49 @@ function compoundInterest(
 
   return +finalInvestmentValue.toFixed(2)
 }
+
+const letters = { a: [{ b: { c: 3 } }] }
+
+const john = {
+  profile: {
+    name: { firstName: 'John', lastName: 'Doe' },
+    age: 20,
+    gender: 'Male',
+  },
+}
+
+const jane = {
+  profile: {
+    age: 19,
+    gender: 'Female',
+  },
+}
+
+interface GetProps {
+  object: object
+  path: string | string[]
+  defaultValue?: string
+}
+
+/**
+ * Lodash _get method
+ */
+function get(
+  objectParam: object,
+  pathParam: string | string[],
+  defaultValue?: string
+) {
+  let path = typeof pathParam === 'string' ? pathParam.split('.') : pathParam
+  let object: string | object = objectParam
+
+  for (let i = 0; i < path.length; i++) {
+    if (!object) {
+      object = defaultValue
+      break
+    }
+
+    object = object[`${path[i]}`]
+  }
+
+  return object !== undefined ? object : defaultValue
+}

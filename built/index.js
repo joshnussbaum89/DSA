@@ -111,3 +111,32 @@ function compoundInterest(principal, term, rate, compoundingPeriods) {
         Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term);
     return +finalInvestmentValue.toFixed(2);
 }
+var letters = { a: [{ b: { c: 3 } }] };
+var john = {
+    profile: {
+        name: { firstName: 'John', lastName: 'Doe' },
+        age: 20,
+        gender: 'Male',
+    },
+};
+var jane = {
+    profile: {
+        age: 19,
+        gender: 'Female',
+    },
+};
+/**
+ * Lodash _get method
+ */
+function get(objectParam, pathParam, defaultValue) {
+    var path = typeof pathParam === 'string' ? pathParam.split('.') : pathParam;
+    var object = objectParam;
+    for (var i = 0; i < path.length; i++) {
+        if (!object) {
+            object = defaultValue;
+            break;
+        }
+        object = object["".concat(path[i])];
+    }
+    return object !== undefined ? object : defaultValue;
+}
