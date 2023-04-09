@@ -111,20 +111,6 @@ function compoundInterest(principal, term, rate, compoundingPeriods) {
         Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term);
     return +finalInvestmentValue.toFixed(2);
 }
-var letters = { a: [{ b: { c: 3 } }] };
-var john = {
-    profile: {
-        name: { firstName: 'John', lastName: 'Doe' },
-        age: 20,
-        gender: 'Male',
-    },
-};
-var jane = {
-    profile: {
-        age: 19,
-        gender: 'Female',
-    },
-};
 /**
  * Lodash _get method
  */
@@ -139,4 +125,50 @@ function get(objectParam, pathParam, defaultValue) {
         object = object["".concat(path[i])];
     }
     return object !== undefined ? object : defaultValue;
+}
+/**
+ * Returns array without duplicate values
+ */
+function uniqueArray(array) {
+    // O(n^2)
+    var nonDuplicateValues = [];
+    for (var i = 0; i < array.length; i++) {
+        var currentItem = array[i];
+        if (!nonDuplicateValues.includes(currentItem)) {
+            nonDuplicateValues.push(currentItem);
+        }
+    }
+    return nonDuplicateValues;
+    // OR this - O(n)
+    // return Array.from(new Set(array));
+}
+/**
+ *
+ * jQuery .css() method
+ *
+ @example $('h1').css('color', 'red') // sets h1 color to red
+          $('h1').css('color', 'red').css('fontSize', '12px') // sets h1 color to red and font size to 12px
+          $('h1').css('color') // 'red'
+ **/
+function $(selector) {
+    var element = document.querySelector(selector);
+    return {
+        css: function (property, value) {
+            // if no value is passed in, return current property value
+            if (value === undefined) {
+                // no matching elements
+                if (element === null) {
+                    return undefined;
+                }
+                var value_1 = element.style[property];
+                return value_1 === '' ? undefined : value_1;
+            }
+            // set property value
+            if (element !== null) {
+                element.style[property] = value;
+            }
+            // return this for chaining
+            return this;
+        },
+    };
 }
