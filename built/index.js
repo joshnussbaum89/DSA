@@ -172,3 +172,11 @@ function $(selector) {
         },
     };
 }
+/**
+ * Check if number is a perfect square
+ * @param n number
+ * @returns boolean
+ */
+function isSquare(n) {
+    return Number.isInteger(Math.sqrt(n));
+}
