@@ -141,7 +141,7 @@ function get(
   defaultValue?: string
 ) {
   let path = typeof pathParam === 'string' ? pathParam.split('.') : pathParam
-  let object: string | object = objectParam
+  let object: any = objectParam
 
   for (let i = 0; i < path.length; i++) {
     if (!object) {
@@ -158,9 +158,9 @@ function get(
 /**
  * Returns array without duplicate values
  */
-function uniqueArray(array) {
+function uniqueArray(array: any[]) {
   // O(n^2)
-  let nonDuplicateValues = []
+  let nonDuplicateValues: any[] = []
 
   for (let i = 0; i < array.length; i++) {
     let currentItem = array[i]
@@ -188,7 +188,7 @@ function $(selector: string) {
   const element = document.querySelector(selector) as HTMLElement
 
   return {
-    css: function (property: string, value?: string) {
+    css: function (property: any, value?: string) {
       // if no value is passed in, return current property value
       if (value === undefined) {
         // no matching elements
@@ -218,4 +218,23 @@ function $(selector: string) {
  */
 function isSquare(n: number): boolean {
   return Number.isInteger(Math.sqrt(n))
+}
+
+/**
+ * Given an array of numbers, return an array with the sum of the positive numbers first, followed by the sum of the negative numbers.
+ * @param input array of numbers
+ * @returns [positiveNumberCount, negativeNumberSum]
+ */
+function countPositivesSumNegatives(input: any) {
+  if (input === null || input.length === 0) return []
+
+  const positiveNumberCount: number = input.filter(
+    (num: number) => num > 0
+  ).length
+
+  const negativeNumberSum: number = input
+    .filter((num: number) => num < 0)
+    .reduce((a: number, b: number) => a + b, 0)
+
+  return [positiveNumberCount, negativeNumberSum]
 }

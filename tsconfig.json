@@ -3,7 +3,11 @@
     "outDir": "./built",
     "allowJs": true,
     "lib": ["es6", "DOM", "es2017"],
-    "target": "es5"
+    "target": "es5",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "strict": true,
   },
   "include": ["./src/**/*"]
 }

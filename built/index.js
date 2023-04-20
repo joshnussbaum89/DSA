@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @param {number} num
  * @returns the factorial of the num parameter passed in
@@ -179,4 +180,18 @@ function $(selector) {
  */
 function isSquare(n) {
     return Number.isInteger(Math.sqrt(n));
+}
+/**
+ * Given an array of numbers, return an array with the sum of the positive numbers first, followed by the sum of the negative numbers.
+ * @param input array of numbers
+ * @returns [positiveNumberCount, negativeNumberSum]
+ */
+function countPositivesSumNegatives(input) {
+    if (input === null || input.length === 0)
+        return [];
+    var positiveNumberCount = input.filter(function (num) { return num > 0; }).length;
+    var negativeNumberSum = input
+        .filter(function (num) { return num < 0; })
+        .reduce(function (a, b) { return a + b; }, 0);
+    return [positiveNumberCount, negativeNumberSum];
 }
