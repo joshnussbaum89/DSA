@@ -195,3 +195,27 @@ function countPositivesSumNegatives(input) {
         .reduce(function (a, b) { return a + b; }, 0);
     return [positiveNumberCount, negativeNumberSum];
 }
+/**
+ * Perform basic operation on two numbers
+ */
+function basicOp(operation, value1, value2) {
+    switch (operation) {
+        case '+':
+            return value1 + value2;
+        case '-':
+            return value1 - value2;
+        case '*':
+            return value1 * value2;
+        case '/':
+            return value1 / value2;
+        default:
+            return 0;
+    }
+}
+/**
+ * Given an array, return the inverted value of numbers
+ * @example [1, 2, 3, 4, 5] => [-1, -2, -3, -4, -5]
+ */
+function invert(array) {
+    return array.map(function (number) { return -number; });
+}
