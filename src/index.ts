@@ -264,3 +264,9 @@ function basicOp(operation: string, value1: number, value2: number): number {
 function invert(array: number[]): number[] {
   return array.map((number) => -number)
 }
+
+/**
+ * Given three numbers, determine if a triangle can be formed
+ */
+const isTriangle = (a: number, b: number, c: number): boolean =>
+  a + b > c && a + c > b && b + c > a

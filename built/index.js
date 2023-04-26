@@ -219,3 +219,9 @@ function basicOp(operation, value1, value2) {
 function invert(array) {
     return array.map(function (number) { return -number; });
 }
+/**
+ * Given three numbers, determine if a triangle can be formed
+ */
+var isTriangle = function (a, b, c) {
+    return a + b > c && a + c > b && b + c > a;
+};
