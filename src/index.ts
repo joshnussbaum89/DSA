@@ -270,3 +270,27 @@ function invert(array: number[]): number[] {
  */
 const isTriangle = (a: number, b: number, c: number): boolean =>
   a + b > c && a + c > b && b + c > a
+
+/**
+ * Lodash _.chunk method
+ */
+function chunk<T>(array: Array<T>, size = 1): Array<Array<T>> {
+  const chunked = []
+
+  for (let i = 0; i < array.length; i += size) {
+    chunked.push(array.slice(i, i + size))
+  }
+
+  return chunked
+}
+
+/**
+ * Recursive sum
+ */
+function sum(arr: Array<number>, n: number): number {
+  if (n <= 0) {
+    return 0
+  } else {
+    return sum(arr, n - 1) + arr[n - 1]
+  }
+}

@@ -225,3 +225,25 @@ function invert(array) {
 var isTriangle = function (a, b, c) {
     return a + b > c && a + c > b && b + c > a;
 };
+/**
+ * Lodash _.chunk method
+ */
+function chunk(array, size) {
+    if (size === void 0) { size = 1; }
+    var chunked = [];
+    for (var i = 0; i < array.length; i += size) {
+        chunked.push(array.slice(i, i + size));
+    }
+    return chunked;
+}
+/**
+ * Recursive sum
+ */
+function sum(arr, n) {
+    if (n <= 0) {
+        return 0;
+    }
+    else {
+        return sum(arr, n - 1) + arr[n - 1];
+    }
+}
