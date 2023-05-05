@@ -294,3 +294,59 @@ function sum(arr: Array<number>, n: number): number {
     return sum(arr, n - 1) + arr[n - 1]
   }
 }
+
+/**
+ * Create a phone number from array of numbers
+ */
+function createPhoneNumber(numbers: number[]): string {
+  // const finalChars: string[] = []
+
+  // numbers
+  //   .map((number) => number.toString())
+  //   .forEach((number, index) => {
+  //     if (index === 0) finalChars.push('(')
+  //     if (index === 3) finalChars.push(') ')
+  //     if (index === 6) finalChars.push('-')
+
+  //     finalChars.push(number)
+  //   })
+
+  // return finalChars.join('')
+
+  // OR
+
+  let phoneNumberMask = '(xxx) xxx-xxxx'
+
+  numbers.forEach((num) => {
+    phoneNumberMask = phoneNumberMask.replace('x', num.toString())
+  })
+
+  return phoneNumberMask
+}
+
+/**
+ * Find and count duplicates in a string
+ *
+ * @param text string of alphanumeric characters
+ * @return number of duplicate characters
+ */
+function duplicateCount(text: string): number {
+  const allAvailableChars: Array<string> = []
+  const arrayOfDuplicates: Array<string> = []
+  let numberOfDuplicates = 0
+
+  for (let i = 0; i < text.length; i++) {
+    const currentChar = text[i].toLowerCase()
+    const duplicateDetected = allAvailableChars.includes(currentChar)
+    const repeatedDuplicateDetected = !arrayOfDuplicates.includes(currentChar)
+
+    if (duplicateDetected && repeatedDuplicateDetected) {
+      arrayOfDuplicates.push(currentChar)
+      numberOfDuplicates += 1
+    }
+
+    allAvailableChars.push(text[i])
+  }
+
+  return numberOfDuplicates
+}

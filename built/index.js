@@ -247,3 +247,46 @@ function sum(arr, n) {
         return sum(arr, n - 1) + arr[n - 1];
     }
 }
+/**
+ * Create a phone number from array of numbers
+ */
+function createPhoneNumber(numbers) {
+    // const finalChars: string[] = []
+    // numbers
+    //   .map((number) => number.toString())
+    //   .forEach((number, index) => {
+    //     if (index === 0) finalChars.push('(')
+    //     if (index === 3) finalChars.push(') ')
+    //     if (index === 6) finalChars.push('-')
+    //     finalChars.push(number)
+    //   })
+    // return finalChars.join('')
+    // OR
+    var phoneNumberMask = '(xxx) xxx-xxxx';
+    numbers.forEach(function (num) {
+        phoneNumberMask = phoneNumberMask.replace('x', num.toString());
+    });
+    return phoneNumberMask;
+}
+/**
+ * Find and count duplicates in a string
+ *
+ * @param text string of alphanumeric characters
+ * @return number of duplicate characters
+ */
+function duplicateCount(text) {
+    var allAvailableChars = [];
+    var arrayOfDuplicates = [];
+    var numberOfDuplicates = 0;
+    for (var i = 0; i < text.length; i++) {
+        var currentChar = text[i].toLowerCase();
+        var duplicateDetected = allAvailableChars.includes(currentChar);
+        var repeatedDuplicateDetected = !arrayOfDuplicates.includes(currentChar);
+        if (duplicateDetected && repeatedDuplicateDetected) {
+            arrayOfDuplicates.push(currentChar);
+            numberOfDuplicates += 1;
+        }
+        allAvailableChars.push(text[i]);
+    }
+    return numberOfDuplicates;
+}

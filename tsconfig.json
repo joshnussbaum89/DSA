@@ -7,7 +7,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "strict": true,
+    "strict": true
   },
   "include": ["./src/**/*"]
 }
