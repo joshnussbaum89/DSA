@@ -59,8 +59,7 @@ function longestWord(sen: string): string {
 function usernameValidation(str: string): boolean {
   const correctLength = str.length >= 4 && str.length <= 25
   const startsWithLetter = str[0].toLowerCase() !== str[0].toUpperCase()
-  const containsCorrectChars =
-    /^[a-zA-Z0-9_]*$/.test(str) && str[str.length - 1] !== '_'
+  const containsCorrectChars = /^[a-zA-Z0-9_]*$/.test(str) && str[str.length - 1] !== '_'
 
   return correctLength && startsWithLetter && containsCorrectChars
 }
@@ -126,8 +125,7 @@ function compoundInterest(
   compoundingPeriods: number
 ): number {
   const finalInvestmentValue =
-    principal *
-    Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term)
+    principal * Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term)
 
   return +finalInvestmentValue.toFixed(2)
 }
@@ -135,11 +133,7 @@ function compoundInterest(
 /**
  * Lodash _get method
  */
-function get(
-  objectParam: object,
-  pathParam: string | string[],
-  defaultValue?: string
-) {
+function get(objectParam: object, pathParam: string | string[], defaultValue?: string) {
   let path = typeof pathParam === 'string' ? pathParam.split('.') : pathParam
   let object: any = objectParam
 
@@ -228,9 +222,7 @@ function isSquare(n: number): boolean {
 function countPositivesSumNegatives(input: any) {
   if (input === null || input.length === 0) return []
 
-  const positiveNumberCount: number = input.filter(
-    (num: number) => num > 0
-  ).length
+  const positiveNumberCount: number = input.filter((num: number) => num > 0).length
 
   const negativeNumberSum: number = input
     .filter((num: number) => num < 0)
@@ -268,8 +260,7 @@ function invert(array: number[]): number[] {
 /**
  * Given three numbers, determine if a triangle can be formed
  */
-const isTriangle = (a: number, b: number, c: number): boolean =>
-  a + b > c && a + c > b && b + c > a
+const isTriangle = (a: number, b: number, c: number): boolean => a + b > c && a + c > b && b + c > a
 
 /**
  * Lodash _.chunk method
@@ -349,4 +340,23 @@ function duplicateCount(text: string): number {
   }
 
   return numberOfDuplicates
+}
+
+/**
+ * Determine the longest unique character string possible from two strings
+ */
+const longest = (s1: string, s2: string) => {
+  const createUniqueString = (str: string) => {
+    let uniqueCharString = ''
+
+    str.split('').forEach((char) => {
+      if (!uniqueCharString.includes(char)) {
+        uniqueCharString += char
+      }
+    })
+
+    return uniqueCharString
+  }
+
+  return createUniqueString(`${s1}${s2}`).split('').sort().join('')
 }

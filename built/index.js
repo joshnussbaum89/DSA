@@ -108,8 +108,7 @@ function getAbsSum(arr) {
  * Calculate compound interest over a specified term
  */
 function compoundInterest(principal, term, rate, compoundingPeriods) {
-    var finalInvestmentValue = principal *
-        Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term);
+    var finalInvestmentValue = principal * Math.pow(1 + rate / compoundingPeriods, compoundingPeriods * term);
     return +finalInvestmentValue.toFixed(2);
 }
 /**
@@ -222,9 +221,7 @@ function invert(array) {
 /**
  * Given three numbers, determine if a triangle can be formed
  */
-var isTriangle = function (a, b, c) {
-    return a + b > c && a + c > b && b + c > a;
-};
+var isTriangle = function (a, b, c) { return a + b > c && a + c > b && b + c > a; };
 /**
  * Lodash _.chunk method
  */
@@ -290,3 +287,18 @@ function duplicateCount(text) {
     }
     return numberOfDuplicates;
 }
+/**
+ * Determine the longest unique character string possible from two strings
+ */
+var longest = function (s1, s2) {
+    var createUniqueString = function (str) {
+        var uniqueCharString = '';
+        str.split('').forEach(function (char) {
+            if (!uniqueCharString.includes(char)) {
+                uniqueCharString += char;
+            }
+        });
+        return uniqueCharString;
+    };
+    return createUniqueString("".concat(s1).concat(s2)).split('').sort().join('');
+};
