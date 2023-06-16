@@ -360,3 +360,15 @@ const longest = (s1: string, s2: string) => {
 
   return createUniqueString(`${s1}${s2}`).split('').sort().join('')
 }
+
+/**
+ * Return the first non-consecutive number in an array
+ */
+function firstNonConsecutive(arr: number[]): null | number {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i + 1] - arr[i] !== 1) {
+      return arr[i + 1]
+    }
+  }
+  return null
+}

@@ -302,3 +302,14 @@ var longest = function (s1, s2) {
     };
     return createUniqueString("".concat(s1).concat(s2)).split('').sort().join('');
 };
+/**
+ * Return the first non-consecutive number in an array
+ */
+function firstNonConsecutive(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i + 1] - arr[i] !== 1) {
+            return arr[i + 1];
+        }
+    }
+    return null;
+}
