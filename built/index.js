@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.areYouPlayingBanjo = void 0;
 /**
  * @param {number} num
  * @returns the factorial of the num parameter passed in
@@ -313,3 +315,97 @@ function firstNonConsecutive(arr) {
     }
     return null;
 }
+/**
+ * Reverse a 'word' string
+ * @param {string} word
+ * @returns {string}
+ */
+function reverseWord(word) {
+    var reversedWord = '';
+    for (var _i = 0, word_1 = word; _i < word_1.length; _i++) {
+        var letter = word_1[_i];
+        reversedWord = letter + reversedWord;
+    }
+    return reversedWord;
+}
+function isPalindrome(word) {
+    return word === reverseWord(word);
+}
+/**
+ * Check if all words in an array are palindromes
+ * @param {tring[]} words
+ * @returns
+ */
+function checkAllPalindromes(words) {
+    for (var _i = 0, words_1 = words; _i < words_1.length; _i++) {
+        var word = words_1[_i];
+        if (isPalindrome(word) === false) {
+            return false;
+        }
+    }
+    return true;
+}
+/**
+ * Check if a number is prime
+ * @param {number} num
+ * @returns {boolean}
+ */
+function isPrime(num) {
+    if (num < 2)
+        return false;
+    for (var i = 2; i < num; i++) {
+        if (num % i === 0)
+            return false;
+    }
+    return true;
+}
+/**
+ * Given an array of numbers, print a staircase
+ * @param {number[]} num
+ * @returns {number[][] | boolean}
+ */
+function staircase(nums) {
+    var step = 1;
+    var subsets = [];
+    while (nums.length > 0) {
+        if (nums.length >= step) {
+            subsets.push(nums.splice(0, step));
+            step++;
+        }
+        else {
+            return false;
+        }
+    }
+    return subsets;
+}
+/**
+ * Given a 'name' argument, return a unique message depending on whether the name starts with 'R' or 'r'
+ * @param {string} name
+ * @returns {string}
+ */
+function areYouPlayingBanjo(name) {
+    var firstLetter = name[0].toLowerCase();
+    var regex = /[r]/i;
+    if (firstLetter.match(regex)) {
+        return "".concat(name, " plays banjo");
+    }
+    else {
+        return "".concat(name, " does not play banjo");
+    }
+}
+exports.areYouPlayingBanjo = areYouPlayingBanjo;
+var Kata = /** @class */ (function () {
+    function Kata() {
+    }
+    /**
+     * Square every digit of a given number and concatenate them
+     */
+    Kata.squareDigits = function (num) {
+        return parseInt(num
+            .toString()
+            .split('')
+            .map(function (num) { return Math.pow(parseInt(num), 2); })
+            .join(''));
+    };
+    return Kata;
+}());

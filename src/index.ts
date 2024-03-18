@@ -372,3 +372,102 @@ function firstNonConsecutive(arr: number[]): null | number {
   }
   return null
 }
+
+/**
+ * Reverse a 'word' string
+ * @param {string} word
+ * @returns {string}
+ */
+function reverseWord(word: string): string {
+  let reversedWord = ''
+
+  for (let letter of word) {
+    reversedWord = letter + reversedWord
+  }
+
+  return reversedWord
+}
+
+function isPalindrome(word: string): boolean {
+  return word === reverseWord(word)
+}
+
+/**
+ * Check if all words in an array are palindromes
+ * @param {tring[]} words
+ * @returns
+ */
+function checkAllPalindromes(words: string[]): boolean {
+  for (let word of words) {
+    if (isPalindrome(word) === false) {
+      return false
+    }
+  }
+
+  return true
+}
+
+/**
+ * Check if a number is prime
+ * @param {number} num
+ * @returns {boolean}
+ */
+function isPrime(num: number): boolean {
+  if (num < 2) return false
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) return false
+  }
+  return true
+}
+
+/**
+ * Given an array of numbers, print a staircase
+ * @param {number[]} num
+ * @returns {number[][] | boolean}
+ */
+function staircase(nums: number[]): number[][] | boolean {
+  let step = 1
+  let subsets = []
+
+  while (nums.length > 0) {
+    if (nums.length >= step) {
+      subsets.push(nums.splice(0, step))
+      step++
+    } else {
+      return false
+    }
+  }
+
+  return subsets
+}
+
+/**
+ * Given a 'name' argument, return a unique message depending on whether the name starts with 'R' or 'r'
+ * @param {string} name
+ * @returns {string}
+ */
+export function areYouPlayingBanjo(name: string): string {
+  const firstLetter = name[0].toLowerCase()
+  const regex = /[r]/i
+
+  if (firstLetter.match(regex)) {
+    return `${name} plays banjo`
+  } else {
+    return `${name} does not play banjo`
+  }
+}
+
+class Kata {
+  /**
+   * Square every digit of a given number and concatenate them
+   */
+  static squareDigits(num: number): number {
+    return parseInt(
+      num
+        .toString()
+        .split('')
+        .map((num) => parseInt(num) ** 2)
+        .join('')
+    )
+  }
+}
