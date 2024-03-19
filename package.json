@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/joshnussbaum89/DSA#readme",
   "devDependencies": {
-    "typescript": "^4.9.3"
+    "typescript": "^5.4.2"
   }
 }
