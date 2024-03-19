@@ -446,7 +446,7 @@ function staircase(nums: number[]): number[][] | boolean {
  * @param {string} name
  * @returns {string}
  */
-export function areYouPlayingBanjo(name: string): string {
+function areYouPlayingBanjo(name: string): string {
   const firstLetter = name[0].toLowerCase()
   const regex = /[r]/i
 
@@ -457,18 +457,40 @@ export function areYouPlayingBanjo(name: string): string {
   }
 }
 
-class Kata {
-  /**
-   * Square every digit of a given number and concatenate them
-   */
-  static squareDigits(num: number): number {
-    return parseInt(
-      num
-        .toString()
-        .split('')
-        .map((num) => parseInt(num) ** 2)
-        .join('')
-    )
-  }
+/**
+ * Square every digit of a given number and concatenate them
+ */
+function squareDigits(num: number): number {
+  return parseInt(
+    num
+      .toString()
+      .split('')
+      .map((num) => parseInt(num) ** 2)
+      .join('')
+  )
 }
 
+/**
+ * Given a DNA string, return the complementary DNA string
+ * @description
+ * 'A' becomes 'T', 
+ * 'T' becomes 'A', 
+ * 'C' becomes 'G', 
+ * 'G' becomes 'C'
+ * @example 'ATTGC' => 'TAACG'
+ * @param {string} dna DNA string to be converted
+ * @returns
+ */
+function dnaStrand(dna: string): string {
+  const dnaSymbolBank: { [key: string]: string } = {
+    A: 'T',
+    T: 'A',
+    C: 'G',
+    G: 'C',
+  }
+
+  return dna
+    .split('')
+    .map((symbol) => dnaSymbolBank[symbol])
+    .join('')
+}
